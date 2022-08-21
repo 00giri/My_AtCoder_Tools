@@ -1,6 +1,6 @@
 #エラトステネスの篩 - miniからmaxiまでの素数をリストで返す。
 
-def find_sosuu(mini, maxi):
+def primeNum(mini, maxi):
     sosuu = list(range(maxi+1))
     sosuu2 = []
     
