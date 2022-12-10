@@ -22,5 +22,5 @@ class UnionFind:
             self.ec[y] += self.ec[x]+1
             self.par[x] = y
 
-    def par_check(self, x, y):
+    def isSame(self, x, y):
         return self.find(x) == self.find(y)
