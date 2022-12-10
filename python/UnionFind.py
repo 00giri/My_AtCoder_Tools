@@ -3,7 +3,7 @@
 class UnionFind:
     def __init__(self, n):
         self.par = [i for i in range(n)]
-        self.ec = [0]*n
+        self.rank = [0]*n
     
     def find(self, x):
         if self.par[x] == x:
@@ -15,12 +15,12 @@ class UnionFind:
     def union(self, x, y):
         x = self.find(x)
         y = self.find(y)
-        if self.ec[x] > self.ec[y]:
-            self.ec[x] += self.ec[y]+1
-            self.par[y] = x
-        else:
-            self.ec[y] += self.ec[x]+1
+        if self.rank[x] < self.rank[y]:
             self.par[x] = y
+        else:
+            self.par[y] = x
+            if self.rank[x] == self.rank[y]:
+                self.rank[x] +=1
 
     def isSame(self, x, y):
         return self.find(x) == self.find(y)
