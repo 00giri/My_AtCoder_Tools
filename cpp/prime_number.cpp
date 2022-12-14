@@ -1,6 +1,12 @@
-//エラトステネスの篩 - miniからmaxiまでの素数を配列で返す。
-//auto vec_name = prime_num(min, max);
+/*
+エラトステネスの篩 - miniからmaxiまでの素数を配列で返す。
+auto vec_name = prime_num(min, max);
+*/
 
+#include <bits/stdc++.h>
+using namespace std;
+
+// ここから
 vector<int> prime_num(int mini, int maxi) {
     vector<bool> tmp(maxi-1);
     for (int i=0; i<maxi-1; i++) tmp[i] = true;
@@ -13,3 +19,4 @@ vector<int> prime_num(int mini, int maxi) {
     }
     return ans;
 }
+// ここまで
