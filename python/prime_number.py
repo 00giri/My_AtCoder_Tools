@@ -1,12 +1,12 @@
 #エラトステネスの篩 - miniからmaxiまでの素数をリストで返す。
 
-def primeNum2(mini, maxi):
+def primeNums(mini, maxi):
     prime = []
     if mini <= 2: prime.append(2)
-    judge = [0 for _ in range(maxi+1)]
+    judge = [True for _ in range(maxi+1)]
     for i in range(3, maxi+1, 2):
-        if not judge[i]:
+        if judge[i]:
             if i >= mini: prime.append(i)
             for j in range(i*i, maxi+1, i):
-                judge[j] = 1
+                judge[j] = False
     return prime
