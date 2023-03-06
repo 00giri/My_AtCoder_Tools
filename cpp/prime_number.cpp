@@ -7,16 +7,16 @@ auto vec_name = prime_num(min, max);
 using namespace std;
 
 // ここから
-vector<int> prime_num(int mini, int maxi) {
-    vector<bool> tmp(maxi-1);
-    for (int i=0; i<maxi-1; i++) tmp[i] = true;
-    vector<int> ans = {};
-    for (int i=2; i<maxi+1; i++) {
-        if (tmp[i-2]) {
-            if (i >= mini) ans.push_back(i);
-            for (int j=i*2-2; j<maxi-1; j+=i) tmp[j] = false;
+vector<long long> prime_nums(long long mini, long long maxi) {
+    vector<long long> prime;
+    if (mini <= 2) prime.push_back(2);
+    vector<bool> judge(maxi+1, true);
+    for (long long i=3; i<=maxi; i+=2) {
+        if (judge[i]) {
+            if (i >= mini) prime.push_back(i);
+            for (long long j=i*i; j<=maxi; j+=i) judge[j] = false;
         }
     }
-    return ans;
+    return prime;
 }
 // ここまで
