@@ -1,6 +1,6 @@
 /*
 エラトステネスの篩 - miniからmaxiまでの素数を配列で返す。
-auto vec_name = prime_num(min, max);
+auto vec_name = prime_nums(min, max);
 */
 
 #include <bits/stdc++.h>
