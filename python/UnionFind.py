@@ -5,16 +5,16 @@ class UnionFind:
         self.par = [i for i in range(n)]
         self.rank = [0]*n
     
-    def find(self, x):
+    def root(self, x):
         if self.par[x] == x:
             return x
         else:
-            self.par[x] = self.find(self.par[x])
+            self.par[x] = self.root(self.par[x])
             return self.par[x]
     
-    def union(self, x, y):
-        x = self.find(x)
-        y = self.find(y)
+    def unite(self, x, y):
+        x = self.root(x)
+        y = self.root(y)
         if self.rank[x] < self.rank[y]:
             self.par[x] = y
         else:
@@ -23,4 +23,4 @@ class UnionFind:
                 self.rank[x] +=1
 
     def isSame(self, x, y):
-        return self.find(x) == self.find(y)
+        return self.root(x) == self.root(y)
